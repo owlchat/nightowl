@@ -1,0 +1,27 @@
+name: night_owl
+description: Generate Random Identification.
+version: 0.1.0
+author: Shady Khalifa <shekohex@gmail.com>
+homepage: https://owl.chat
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.20.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: chat.owl.night_owl
+        pluginClass: NightOwlPlugin
+      ios:
+        pluginClass: NightOwlPlugin
