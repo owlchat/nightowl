@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:night_owl/src/multiavatar.dart';
 
+export 'package:night_owl/src/owl_alias.dart';
+
 class NightOwl extends StatelessWidget {
   /// SHA2 (256bit) of the value.
   final String hash;
