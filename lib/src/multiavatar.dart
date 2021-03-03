@@ -8,7 +8,7 @@
 class Multiavatar {
   final String seed;
 
-  const Multiavatar({this.seed});
+  const Multiavatar({required this.seed});
 
   String toSvg() {
     final sha256Numbers = seed.replaceAll(RegExp(r'\D'), '');
@@ -29,7 +29,7 @@ class Multiavatar {
 
     // Get parts (range 0-15) + define themes
     for (final part in p.keys) {
-      var nr = p[part];
+      var nr = p[part]!;
       var nrr = int.parse(nr);
       if (nrr > 31) {
         nrr = nrr - 32;
@@ -55,32 +55,32 @@ class Multiavatar {
     Map<String, String> svg = {};
 
     for (var part in p.keys) {
-      var partV = p[part].substring(0, 2);
-      var theme = p[part].substring(2, 3);
+      var partV = p[part]!.substring(0, 2);
+      var theme = p[part]!/*!*/.substring(2, 3);
       svg[part] = _buildSvg(part, partV, theme);
     }
 
     return (_svgStart +
-        svg['env'] +
-        svg['head'] +
-        svg['clo'] +
-        svg['top'] +
-        svg['eyes'] +
-        svg['mouth'] +
+        svg['env']! +
+        svg['head']! +
+        svg['clo']! +
+        svg['top']! +
+        svg['eyes']! +
+        svg['mouth']! +
         _svgEnd);
   }
 
   String _buildSvg(String part, String partV, String theme) {
-    var colors = _themes[partV][theme][part];
-    var svgString = _sp[partV][part];
+    var colors = _themes[partV]![theme]![part];
+    var svgString = _sp[partV]![part]!;
     var regex = RegExp(r"#(.*?);", dotAll: true, multiLine: true);
     var result = regex.allMatches(svgString);
 
     var resultFinal = svgString;
     for (var i = 0; i < result.length; i++) {
       resultFinal = resultFinal.replaceAll(
-        result.elementAt(i).group(0),
-        colors[i] + ';',
+        result.elementAt(i).group(0)!,
+        colors![i] + ';',
       );
     }
 

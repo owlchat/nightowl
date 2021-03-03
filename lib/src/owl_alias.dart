@@ -1,6 +1,6 @@
 import 'dart:math';
 
-String generateAlias({String seed}) {
+String generateAlias({required String seed}) {
   final sha256Numbers = seed.replaceAll(RegExp(r'\D'), '');
   var hash = sha256Numbers.substring(0, 12);
   if (hash.isEmpty) {

@@ -12,11 +12,11 @@ class NightOwl extends StatelessWidget {
 
   /// If specified, the width to use for the SVG.  If unspecified, the SVG
   /// will take the width of its parent.
-  final double width;
+  final double? width;
 
   /// If specified, the height to use for the SVG.  If unspecified, the SVG
   /// will take the height of its parent.
-  final double height;
+  final double? height;
 
   /// How to inscribe the picture into the space allocated during layout.
   /// The default is [BoxFit.contain].
@@ -47,7 +47,7 @@ class NightOwl extends StatelessWidget {
   final AlignmentGeometry alignment;
 
   /// The placeholder to use while fetching, decoding, and parsing the SVG data.
-  final WidgetBuilder placeholderBuilder;
+  final WidgetBuilder? placeholderBuilder;
 
   /// If true, will horizontally flip the picture in [TextDirection.rtl] contexts.
   final bool matchTextDirection;
@@ -60,7 +60,7 @@ class NightOwl extends StatelessWidget {
   ///
   /// The value indicates the purpose of the picture, and will be
   /// read out by screen readers.
-  final String semanticsLabel;
+  final String? semanticsLabel;
 
   /// Whether to exclude this picture from semantics.
   ///
@@ -77,7 +77,7 @@ class NightOwl extends StatelessWidget {
   final Clip clipBehavior;
 
   const NightOwl({
-    @required this.hash,
+    /*required*/ required this.hash,
     this.width,
     this.height,
     this.fit = BoxFit.contain,
@@ -88,7 +88,7 @@ class NightOwl extends StatelessWidget {
     this.semanticsLabel,
     this.excludeFromSemantics = false,
     this.clipBehavior = Clip.hardEdge,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
